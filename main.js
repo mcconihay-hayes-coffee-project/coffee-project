@@ -36,9 +36,9 @@ function updateCoffees(e) {
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
 
-var buildSearch = document.getElementById("search-2");
-
-buildSearch.addEventListener('keyup', updateCoffees)
+// var buildSearch = document.getElementById("search-2");
+//
+// buildSearch.addEventListener('keyup', updateCoffees)
 
 /* Coffees Array  */
 
@@ -68,7 +68,7 @@ var roastSelection = document.querySelector('#roast-selection');
 
 tbody.innerHTML = renderCoffees(coffees.reverse());
 
-submitButton.addEventListener('click', updateCoffees);
+// submitButton.addEventListener('click', updateCoffees);
 
 
 
@@ -102,6 +102,29 @@ searchRoast.addEventListener('mouseout', function(e){
     tbody.innerHTML = renderCoffees(matchingCoffees2)
 })
 
+var search2 = document.getElementById('search-2');
+var buildText = document.getElementById("submit");
+var searchRoast2 = document.getElementById("roast-selection-2");
+buildText.addEventListener('click', function (e) {
+        e.preventDefault()
+        var coffeeInput = search2.value
+        var pickRoast2 = searchRoast2.value
+        var newCoffee = {
+        name:coffeeInput,
+        roast:pickRoast2,
+        }
+
+    coffees.push(newCoffee)
+
+    tbody.innerHTML = renderCoffees(coffees)
+
+    console.log(coffees)
+})
+
+
+// localStorage.setItem(coffees)
+
+//go back and look at my library project
 
 
 //red
