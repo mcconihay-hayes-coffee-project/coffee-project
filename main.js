@@ -72,7 +72,7 @@ search.addEventListener('keyup', function(e){
     }
     tbody.innerHTML = renderCoffees(matchingCoffees)
 })
-
+//red
 //userinput captures the value of the input field = (search bar) = 'search' that you type in and lowercases it
 
 //if statement
