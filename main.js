@@ -22,7 +22,7 @@ function renderCoffees(coffees) {
     return html;
 }
 
-/* Bonus (Ignore for now)  */
+/* Bonus */
 
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
@@ -35,6 +35,10 @@ function updateCoffees(e) {
     });
     tbody.innerHTML = renderCoffees(filteredCoffees);
 }
+
+var buildSearch = document.getElementById("search-2");
+
+buildSearch.addEventListener('keyup', updateCoffees)
 
 /* Coffees Array  */
 
@@ -68,9 +72,6 @@ submitButton.addEventListener('click', updateCoffees);
 
 
 
-
-
-
 var search = document.getElementById('search');
 
 search.addEventListener('keyup', function(e){
@@ -83,6 +84,26 @@ search.addEventListener('keyup', function(e){
     }
     tbody.innerHTML = renderCoffees(matchingCoffees)
 })
+
+
+/* ROAST SELECTOR SECTION */
+
+
+var searchRoast = document.getElementById("roast-selection");
+
+searchRoast.addEventListener('mouseout', function(e){
+    var userInput2 = searchRoast.value.toLowerCase()
+    var matchingCoffees2 = []
+    for (var i = 0; i < coffees.length; i++) {
+        if(coffees[i].roast.toLowerCase().startsWith(userInput2)){
+            matchingCoffees2.push(coffees[i])
+        }
+    }
+    tbody.innerHTML = renderCoffees(matchingCoffees2)
+})
+
+
+
 //red
 //userinput captures the value of the input field = (search bar) = 'search' that you type in and lowercases it
 
@@ -105,4 +126,6 @@ search.addEventListener('keyup', function(e){
 // input.addEventListener('search', () => {
 //
 // })
+
+
 
