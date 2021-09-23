@@ -64,48 +64,45 @@ var roastSelection = document.querySelector('#roast-selection');
 
 tbody.innerHTML = renderCoffees(coffees.reverse());
 
-
-
 submitButton.addEventListener('click', updateCoffees);
 
 
-var search = document.getElementById("search");
-
-var input = document.querySelector('input[type="search"]');
 
 
 
 
-function searchInput {
+var search = document.getElementById('search');
+
+search.addEventListener('keyup', function(e){
+    var userInput = search.value.toLowerCase()
+    var matchingCoffees = []
+    for (var i = 0; i < coffees.length; i++) {
+        if(coffees[i].name.toLowerCase().startsWith(userInput)){
+            matchingCoffees.push(coffees[i])
+        }
+    }
+    tbody.innerHTML = renderCoffees(matchingCoffees)
+})
+//red
+//userinput captures the value of the input field = (search bar) = 'search' that you type in and lowercases it
+
+//if statement
+//coffees[i].name = the name of the coffee at [i] of coffees
+//the tolowerCase targets the name of the coffee at position [i] in coffees
+//
+//
+
+// The startsWith() method returns true if a string begins with a specified string, otherwise false.
+// the includes() method returns true if a string contains a specified string, otherwise false.
+// for (let coffee of coffees) {
+//     console.log(coffee.name)
+// }
 
 
-}
-
-
-
-
-/* DORIAN ADVICE
-
-***Add function to input***
-
-Make new array and store each letter in empty array.
-
-Use a loop to loop through the array.
-
-Key up and Key down.
-
-
- */
-
-
-/* First we need to make a loop that loops through the array (we have something
-for this already).
-
-Then we need to check whatever was in the search input and compare it to
-the array.
-
-THEN we need to update the results.
-
- */
-
+//key stroke
+// key up and key down
+//use an array when creating a function
+// input.addEventListener('search', () => {
+//
+// })
 
