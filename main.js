@@ -135,8 +135,44 @@ buildText.addEventListener('click', function (e) {
     console.log(window.localStorage.getItem('newCoffee'));
 
 })
+// window.localStorage.setItem('newCoffee', JSON.stringify(newCoffee))
+// var oldCoffee = coffees = JSON.parse(localStorage.getItem("allEntries"));
+// if(oldCoffee == null) oldCoffee = []
+// localStorage.setItem('newCoffee', JSON.stringify(newCoffee));
+// oldCoffee.push(newCoffee);
+// localStorage.setItem("newCoffee", JSON.stringify(oldCoffee));
 
 
+
+
+
+
+
+
+
+// var oldItems = JSON.parse(localStorage.getItem('itemsArray')) || [];
+//
+// var newItem = {
+//     'product-name': coffees.find('newCoffee').text(),
+//
+// };
+//
+// oldItems.push(newItem);
+//
+// localStorage.setItem('itemsArray', JSON.stringify(oldItems));
+//
+// console.log(window.localStorage.getItem('newCoffee'));
+
+
+
+// for (let i = 0; i < localStorage.length; i++) {
+//     const key = localStorage.key(i);
+//     console.log(`${key}: ${localStorage.getItem(key)}`);
+// }
+// const keys = Object.keys(localStorage);
+// for (let key of keys) {
+//     console.log(`${key}: ${localStorage.getItem(key)}`);
+// }
 
 // localStorage.setItem(coffees)
 
