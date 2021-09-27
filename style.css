@@ -116,6 +116,7 @@ audio {
 }
 
 .line {
+    background-color: #38220f;
     border: 2px solid #38220f;
     width: 75%;
 }
