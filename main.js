@@ -134,7 +134,19 @@ buildText.addEventListener('click', function (e) {
     window.localStorage.setItem('newCoffee', JSON.stringify(newCoffee))
     console.log(window.localStorage.getItem('newCoffee'));
 
+
+
+
 })
+// function save(){
+//     var newData = document.getItem('newCoffee').value;
+//     if(localStorage.getItem("data") == null){
+//         localStorage.setItem("data", "[]")
+//     }
+//     var oldData = JSON.parse.localStorage.getItem('data');
+//     oldData.push(newData);
+//     localStorage.setItem('data', JSON.stringify(oldData))
+// }
 // window.localStorage.setItem('newCoffee', JSON.stringify(newCoffee))
 // var oldCoffee = coffees = JSON.parse(localStorage.getItem("allEntries"));
 // if(oldCoffee == null) oldCoffee = []
