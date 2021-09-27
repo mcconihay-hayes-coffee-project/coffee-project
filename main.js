@@ -131,8 +131,9 @@ buildText.addEventListener('click', function (e) {
     coffees.push(newCoffee)
 
     tbody.innerHTML = renderCoffees(coffees)
+    window.localStorage.setItem('newCoffee', JSON.stringify(newCoffee))
+    console.log(window.localStorage.getItem('newCoffee'));
 
-    console.log(coffees)
 })
 
 
