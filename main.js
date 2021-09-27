@@ -1,18 +1,27 @@
 "use strict"
 
+
 /* Displays Coffees on page  */
 
+
+/* DEFAULT */
+
 function renderCoffee(coffee) {
-    var html = '<div class="coffee">';
+    var html = '<div class="col col-padding">';
     html += '<div class="noId">' + coffee.id + '</div>';
-    html += '<h4>' + coffee.name + '</h4>';
-    html += '<p>' + coffee.roast + '</p>';
+    html += '<p class="text-center user-option-' + coffee.userOption +'"><span class="coffee-name">' + coffee.name + '</span>&nbsp;<span class="coffee-roast">' + coffee.roast + '</span></p>';
+    if(coffee.imageurl) {
+        html += '<img class="new" src="images/new.png">'
+    }
     html += '</div>';
 
     return html;
 }
 
+
 /* Loops through the coffees array  */
+
+/* DEFAULT */
 
 function renderCoffees(coffees) {
     var html = '';
@@ -22,7 +31,7 @@ function renderCoffees(coffees) {
     return html;
 }
 
-/* Bonus */
+/* Updates Data */
 
 function updateCoffees(e) {
     e.preventDefault(); // don't submit the form, we just want to update the data
@@ -44,20 +53,20 @@ function updateCoffees(e) {
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 var coffees = [
-    {id: 1, name: 'Light City', roast: 'light'},
-    {id: 2, name: 'Half City', roast: 'light'},
-    {id: 3, name: 'Cinnamon', roast: 'light'},
-    {id: 4, name: 'City', roast: 'medium'},
-    {id: 5, name: 'American', roast: 'medium'},
-    {id: 6, name: 'Breakfast', roast: 'medium'},
-    {id: 7, name: 'High', roast: 'dark'},
-    {id: 8, name: 'Continental', roast: 'dark'},
-    {id: 9, name: 'New Orleans', roast: 'dark'},
-    {id: 10, name: 'European', roast: 'dark'},
-    {id: 11, name: 'Espresso', roast: 'dark'},
-    {id: 12, name: 'Viennese', roast: 'dark'},
-    {id: 13, name: 'Italian', roast: 'dark'},
-    {id: 14, name: 'French', roast: 'dark'},
+    {id: 1, name: 'Light City', roast: 'light', userOption: false},
+    {id: 2, name: 'Half City', roast: 'light', userOption: false},
+    {id: 3, name: 'Cinnamon', roast: 'light', userOption: false},
+    {id: 4, name: 'City', roast: 'medium', userOption: false},
+    {id: 5, name: 'American', roast: 'medium', userOption: false},
+    {id: 6, name: 'Breakfast', roast: 'medium', userOption: false},
+    {id: 7, name: 'High', roast: 'dark', userOption: false},
+    {id: 8, name: 'Continental', roast: 'dark', userOption: false},
+    {id: 9, name: 'New Orleans', roast: 'dark', userOption: false},
+    {id: 10, name: 'European', roast: 'dark', userOption: false},
+    {id: 11, name: 'Espresso', roast: 'dark', userOption: false},
+    {id: 12, name: 'Viennese', roast: 'dark', userOption: false},
+    {id: 13, name: 'Italian', roast: 'dark', userOption: false},
+    {id: 14, name: 'French', roast: 'dark', userOption: false},
 ];
 
 /* Variables to use later, target ids  */
@@ -71,6 +80,7 @@ tbody.innerHTML = renderCoffees(coffees.reverse());
 // submitButton.addEventListener('click', updateCoffees);
 
 
+/* SEARCH COFFEE SECTION */
 
 var search = document.getElementById('search');
 
@@ -102,17 +112,21 @@ searchRoast.addEventListener('mouseout', function(e){
     tbody.innerHTML = renderCoffees(matchingCoffees2)
 })
 
+/* NEW COFFEE FUNCTION */
+
 var search2 = document.getElementById('search-2');
 var buildText = document.getElementById("submit");
 var searchRoast2 = document.getElementById("roast-selection-2");
 buildText.addEventListener('click', function (e) {
-        e.preventDefault()
-        var coffeeInput = search2.value
-        var pickRoast2 = searchRoast2.value
-        var newCoffee = {
+    e.preventDefault()
+    var coffeeInput = search2.value
+    var pickRoast2 = searchRoast2.value
+    var newCoffee = {
         name:coffeeInput,
         roast:pickRoast2,
-        }
+        userOption: true,
+        imageurl: 'images/new.png'
+    }
 
     coffees.push(newCoffee)
 
@@ -120,6 +134,7 @@ buildText.addEventListener('click', function (e) {
 
     console.log(coffees)
 })
+
 
 
 // localStorage.setItem(coffees)
@@ -149,6 +164,3 @@ buildText.addEventListener('click', function (e) {
 // input.addEventListener('search', () => {
 //
 // })
-
-
-
